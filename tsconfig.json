@@ -1,18 +1,53 @@
+// tsconfig.json
 {
   "compilerOptions": {
+    // ==============================
+    // Language & Target Environment
+    // ==============================
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
     "module": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+
+    // ==============================
+    // Module Resolution & Interop
+    // ==============================
     "moduleResolution": "bundler",
+    "esModuleInterop": true,
     "resolveJsonModule": true,
+    "allowJs": true,
+
+    // ==============================
+    // Strictness & Type Safety
+    // ==============================
+    "strict": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowUnreachableCode": false,
+    "useUnknownInCatchVariables": true,
+    "noImplicitOverride": true,
+    
+    // ==============================
+    // Build & Performance Optimizations
+    // ==============================
+    "skipLibCheck": true,              // Skip type checking of declaration files (faster)
+    "removeComments": true,            // Clean output (not critical with noEmit: true)
+    "preserveConstEnums": true,
+    "forceConsistentCasingInFileNames": true,
+    "incremental": true,               // Enable incremental builds for faster recompilation
+    "noEmit": true,                   // Don't emit output files (Next.js handles build)
+    
+    // ==============================
+    // Misc
+    // ==============================
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true,
     "plugins": [
       {
         "name": "next"
@@ -22,6 +57,15 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+
+  "exclude": [
+    "node_modules"
+    // Add test folders/files here later, e.g. "**/*.spec.ts", "**/*.test.ts"
+  ]
 }
